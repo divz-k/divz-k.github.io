@@ -2,7 +2,7 @@
 
 This is some **emphasised** and _italicised_ text.
 
-##subtitle##
+## subtitle
 
 * apple
 * banana
