@@ -1,6 +1,6 @@
 # tryforclass
 
-This is some **emphasised** and __italicised__ text.
+This is some **emphasised** and _italicised_ text.
 
 ##subtitle
 
