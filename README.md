@@ -19,8 +19,9 @@ I was inspired to be a molecular biologist in high school, when I had first lear
 Grad school is all about learning to solve new problems outside of your field of expertise. There isn't a defined path to a solution, and you learn the ability to pick up a new skill and learn any new topic.
 
 
-
+## Links
 [Weizmann Institute of Science](https://www.weizmann.ac.il/pages/)
+
 [S Gabor](https://szabgab.com/)
 
 Here is a cute panda for stopping by!
