@@ -14,11 +14,11 @@ I did my undergrad at the Indian Institute of Science, where I majored in Biolog
 I was inspired to be a molecular biologist in high school, when I had first learned of the central dogma, despite not having a clue of what such a career would look like. I was set on my way to becoming a molecular biologist, until I took a course in the 3rd year of my undergrad : DNA protein interaction and nanobiology, which opened my eyes to a very unique perspective on the same. Following this course, I worked in four single molecule labs. My interests have diversified since then, yet this course showed me the beauty of thinking of science from different perspectives, which has stuck with me. 
 
 ## Research Milestones
-** mapped _in vivo_ binding profiles of over 300 transcription factor mutants in yeast
-** analysed NGS sequencing data and developed tools to visualize and analyze biological patterns
-** our study on TF IDRs was recommended in Faculty opinions
-** mentored an undergraduate and masters student on two independent projects
-** developing an _in vitro_ system to identify binding profiles of transcription factors and their disordered regions
+**mapped _in vivo_ binding profiles of over 300 transcription factor mutants in yeast
+**analysed NGS sequencing data and developed tools to visualize and analyze biological patterns
+**our study on TF IDRs was recommended in Faculty opinions
+**mentored an undergraduate and masters student on two independent projects
+**developing an _in vitro_ system to identify binding profiles of transcription factors and their disordered regions
 
 ## Reflections
 Grad school is all about learning to solve new problems outside of your field of expertise. There isn't a defined path to a solution, and you learn the ability to pick up a new skill and learn any new topic
