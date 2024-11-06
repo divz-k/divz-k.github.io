@@ -20,7 +20,8 @@ Grad school is all about learning to solve new problems outside of your field of
 
 
 
-https://www.weizmann.ac.il/pages/
-https://szabgab.com/ 
+[Weizmann Institute of Science](https://www.weizmann.ac.il/pages/)
+[S Gabor](https://szabgab.com/)
 
+Here is a cute panda for stopping by!
 <img src="https://media.istockphoto.com/id/523761634/photo/cute-panda-bear-climbing-in-tree.jpg?s=1024x1024&w=is&k=20&c=lPEeunHgg_aSKS-Cj-c7jrGoSxi4B7NgvwRTigMXLMs=" width="300" />
