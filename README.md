@@ -1,8 +1,7 @@
 # Divya Krishna Kumar
 
-This is some **emphasised** and _italicised_ text.
 
-## About Me
+** About Me **
 Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
 
 ## Academic Journey
