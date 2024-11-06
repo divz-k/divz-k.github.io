@@ -6,7 +6,7 @@
 Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
 
 ![This is me](DK.jpg)
-<img src="DK.jpg" width="300" height="200" />
+<img src="DK.jpg" width="300" />
 
 ## Academic Journey
 I did my undergrad at the Indian Institute of Science, where I majored in Biology. I then moved to Israel to do my Masters at the Weizmann Institute of Science, where I later continued for my PhD in prof Naama Barkai's lab. 
