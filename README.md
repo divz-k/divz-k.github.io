@@ -3,6 +3,21 @@
   <p class="text">Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.</p>
 </div>
 
+.container {
+  display: flex;  /* Arrange items side by side */
+  align-items: center;  /* Vertically center items */
+}
+
+.image {
+  width: 50%;  /* Set image width to 50% of the container */
+  margin-right: 20px;  /* Add space between the image and the text */
+}
+
+.text {
+  flex: 1;  /* Allow the text to take the remaining space */
+}
+
+
 Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
 
 <img src="DK.jpg" width="300" />
