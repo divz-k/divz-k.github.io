@@ -1,11 +1,14 @@
-<head>
-  <link rel="stylesheet" href="styles.css">
-</head>
+<table>
+  <tr>
+    <td>
+      <img src="DK.jpg" width="300">
+    </td>
+    <td>
+     Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
+    </td>
+  </tr>
+</table>
  
-<div class="container">
-  <img src="DK.jpg" width="300" />
-  <p class="text">Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.</p>
-</div>
 
 Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
 
