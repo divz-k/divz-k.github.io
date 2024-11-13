@@ -21,6 +21,8 @@ I was inspired to be a molecular biologist in high school, when I had first lear
 * our study on TF IDRs was recommended in Faculty opinions
 * mentored an undergraduate and masters student on two independent projects
 * developing an _in vitro_ system to identify binding profiles of transcription factors and their disordered regions
+* [my first paper](https://doi.org/10.1016/j.molcel.2023.04.002)
+* [my second paper](https://doi.org/10.1093/nar/gkae521)
 
 ## Reflections
 Grad school is all about learning to solve new problems outside of your field of expertise. There isn't a defined path to a solution, and you learn the ability to pick up a new skill and learn any new topic.
