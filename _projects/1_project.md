@@ -1,25 +1,30 @@
 ---
 layout: page
-title: project 1
-description: with background image
+title: CAFA6 Challenge
+description: Predicting a protein's function from its amino acid sequence
 img: assets/img/12.jpg
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Can we predict a protein's function from its amino acid sequence? The CAFA (Critical Assessment of protein Function Annotation) 6th challenge aims to predict protein function prediction using Gene Ontology (GO) annotations. GO annotations are the function annotations associated with the protein, the GO terms are structured as a Directed Acyclic Graph (DAG), and belong to three non-overlapping ontologies: Molecular Function (MF), Biological Process (BP) and Cellular Component (CC). Each protein can have multiple GO terms, and annotations must respect the hierarchical structure of the ontology (true path rule).
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This task is a multi-label classification problem:
+    - Input: Protein amino acid sequence
+    - Output: A probability score for each GO term
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+Challenges:
+    - Sparce labelling / Class imbalance: most GO terms are rare
+    - Hierarchical Label Structure: the labels are associated with each other. If a protein is associated with a GO term, it must also be annotated with that term's ancestor terms.
+    - Varying protein sequence length: We must find a reliablw way to represent proteins that are 30 to 30,000 amino acids long
+    - Large dataset, and limited computational power on my laptop
+    
+GO Term Standardization and Indexing: 
+    - All GO terms from the CAFA training set were parsed using go-basic.obo. 
+    - Only GO terms appearing in the training annotations were retained, yielding ~25k terms.
+    - The GO terms were split into the 3 subontologies to process separately
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
