@@ -5,7 +5,7 @@ description: Predicting a protein's function from its amino acid sequence
 img: assets/img/cafa_image.jpeg
 importance: 1
 category: work
-related_publications: true
+related_publications: false
 ---
 
 Can we predict a protein's function from its amino acid sequence? The CAFA (Critical Assessment of protein Function Annotation) 6th challenge aims to predict protein function prediction using Gene Ontology (GO) annotations. GO annotations are the function annotations associated with the protein, the GO terms are structured as a Directed Acyclic Graph (DAG), and belong to three non-overlapping ontologies: Molecular Function (MF), Biological Process (BP) and Cellular Component (CC). Each protein can have multiple GO terms, and annotations must respect the hierarchical structure of the ontology (true path rule).
