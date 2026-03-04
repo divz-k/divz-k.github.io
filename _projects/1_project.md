@@ -81,7 +81,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         $$
         where Wc is the GO Co-occurance matrix, alpha is the restart probability (0.5) and Rc is the matrix of the conditional random walk, which determines the weight of possible co-occurances. The random walk is performed over 4 iteration. 
 
-        2. Heirarchial GO Matrix
+    2. Heirarchial GO Matrix
         - Contruct the heirarchial graph/matrix: map the ancestor node to all its children. The weight of the edges (values in the matrix) is determined by
         $$
         wi,j​= 2IC(i) / IC(i)+IC(j)
@@ -90,7 +90,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         - Conditional Random walk
         Perform the same random walk as for the co-occurance, and obtain the Rh matrix that determines the possibility that if a parent node was annotated, the child node will later be annotated. 
         
-        3. Compute the negative GO terme:
+    3. Compute the negative GO terme:
         - Combine Rh and Wh into a single sparce matrix
         $$
         R = βR_h+(1-β)R_c
@@ -98,6 +98,46 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         We want the negative GO terms, so we must take 1-R. This is dense and huge, so computed only in the end (for the specific GO terms required, the full matrix remains sparse). 
         - For each  protein id, we take the list of positive GO terms, find the potential postitve GO terms for each of the protein's associated GO terms (R matrix). Find the negative GO terms by 1-R. Subset those GO terms that have high informational content and take the ones with the top 50 scores. This is the list of NegGO terms per protein​
     
+
+### Protein epresentation with ESM2
+Protein sequences were embedded using ESM2-T6 (8M parameters):
+	- Encoder frozen for stability and efficiency
+	- CLS token embeddings extracted from the final layer
+For long sequences:
+	- sequences were chunked (max length ~1000, stride ~970),
+	- CLS embeddings were averaged across chunks to form a single protein representation.
+All embeddings were precomputed and cached to disk, enabling fast experimentation without recomputing ESM features.
+
+### Model Architecture
+The prediction model is a lightweight MLP head:
+ESM2 embedding (CLS)
+ → Linear → ReLU → Dropout
+ → Linear → ReLU → Dropout
+ → Linear → logits over GO terms
+
+### Loss Function Design
+The final objective is a weighted combination of four losses, each addressing a specific failure mode.
+
+	1. Asymmetric BCE with IC Weighting:
+False positives and false negatives are weighted per GO term:
+	high-IC (specific) terms → stronger FP penalty,
+	low-IC (general) terms → stronger FN penalty.
+Losses are computed separately for BP, MF, and CC and averaged to prevent BP dominance.
+
+	2. Coverage Loss (Early Training Stabilization)
+To prevent collapse to all-zero predictions, I introduced a coverage loss: enforces a minimum average predicted probability over true positive GO terms, applied in early epochs.
+This ensures the model learns to “activate” meaningful outputs before fine-grained discrimination.
+
+	3. Hierarchy Consistency Loss
+Enforces: P(child)≤P(parent). To keep computation tractable, I only applied to top-K predicted GO terms per batch, hierarchy pairs are precomputed once from the GO DAG.
+
+	4. Negative GO Margin Loss
+Explicitly penalizes confident predictions on precomputed negative GO terms. This forces separation between true positives and hard negatives. This was activated only after a few epochs of training.
+ 
+Final Loss
+$$
+L=L_asym+λ_hier L_hier+λ_neg L_neg+λ_cov L_cov
+$$
 
 
 
