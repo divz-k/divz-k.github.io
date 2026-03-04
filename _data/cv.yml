@@ -1,140 +1,152 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
+  name: Divya Krishna Kumar
+  label: PhD candidate
+  email: kdivya5706@gmail.com
+  location: Israel
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  summary: A biologist in the pursuit of cracking the code of life. 
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: divz-k
     - network: LinkedIn
-      username: example
+      username: Divya-Krishna-Kumar
 
   address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+    street: 234 Hertzl St
+    city: Weizmann Institute of Science
+    region: Israel
+    postalCode: 7610001
+    countryCode: IL
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
+      - institution: Weizmann Institute of Science
+        location: Rehovot, Israel
+        url: https://www.weizmann.ac.il/pages/
+        area: Computational/Molecular Biology
         studyType: PhD
-        start_date: 1900
-        end_date: 1905
+        start_date: 2021
+        end_date: 2026
         score: ""
-        courses: "Theory of Relativity"
+        courses: "Projects in Data Science, Introduction to Machine Learning, Analyzing Single Cell Seq Data, Mathematics for Biology, Statistics for Life Sciences, Network analysis in Systems Biology"
         highlights:
-          - Description 1.
-          - Description 2.
+          - Computational: Identified gene regulatory patterns of transcription factors in yeast by analyzing NGS genomics data. Developed end-to-end NGS pipelines from wet-lab data to downstream analysis. Routine handling of large-scale datasets. 
+          - Experimental: created >500 yeast TF mutants, set up a protein experimental domain in an *in vivo* lab (designing protocols, acquiring reagents and instruments)
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
+
+      - institution: Weizmann Institute of Science
+        location: Rehovot, Israel
+        area: Computational/Molecular Biology
+        studyType: Masters
+        start_date: 2018
+        end_date: 2021
         highlights:
-          - Description 1.
-          - Description 2.
+          - Single-nucleosome imaging to study K27me3 epigenetic modifications in breast cancer (Dr Efrat Shema)
+          - Single molecule imaging, MST and modeling of allosteric signal transmission by DNA in ComK's targets genes (Dr Hagen Hoffman)
+
+      - institution: Indian Institute of Science
+        location: Bangalore, India
+        area: Biology
+        studyType: Bachelors
+        start_date: 2014
+        end_date: 2018
+        highlights:
+          - Studying biophysics of Zika Viral Helicase though single molecule measurements and biochemical assays (Dr Rahul Roy)
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: Stowers Institute for Medical Reseach, USA
+        position: Summer Scholar (internship)
+        location: Kansas City, USA
+        start_date: 2018
+        end_date: 2018
         highlights:
-          - Relativity
-          - Description 2.
-
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
-        highlights:
-          - Description 1.
-          - Description 2.
-
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
-        highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - single molecule FISH in Drosophila melanogaster embryos to study RNA polymerase pausing in the lab of Dr Julia Zeitlinger
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - title: Azrieli Institute for Systems Biology “Innovative Award” 
+        date: 2024
+        summary: Project proposal granted 10000$
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: Best Talk Award, Israeli Conference on Protein-DNA Interactions 
+        date: 2024
+        summary: Talk on [this research](https://pubmed.ncbi.nlm.nih.gov/37116493/)
+
+      - title: Azrieli Institute for Systems Biology “Innovative Award” 
+        date: 2022
+        summary: Project proposal granted 5000$
+
+      - title: KVPY Fellowship
+        date: 2015
+        summary: KVPY-SB AIR 55
 
     Publications:
-      - title: Zur Elektrodynamik bewegter Körper
+      - title: Complementary strategies for directing in vivo transcription factor binding through DNA binding domains and intrinsically disordered regions
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+          - DK Kumar *
+          - F Jonas *
+          - T Jana
+          - S Brodsky
+          - M Carmi
+          - N Barkai
+        publisher: Molecular Cell
+        releaseDate: 2023
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
+      - title: Disordered sequences of transcription factors regulate genomic binding by integrating diverse sequence grammars and interaction types
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+          - B Hurieva *
+          - DK Kumar *
+          - R Morag
+          - O Lupo
+          - M Carmi
+          - N Barkai
+          - F Jonas
+      publisher: Nucleic Acids Research
+      releaseDate: 2024
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
+      - title: The architecture of binding cooperativity between densely bound transcription factors
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+          - O Lupo
+          - DK Kumar
+          - R Livne
+          - M Chappleboim
+          - I Levy
+          - N Barkai
+      publisher: Cell Systems
+      releaseDate: 2023
+
+      - title: Engineering intrinsically disordered regions for guiding genome navigation
+        authors:
+          - J Liu
+          - DK Kumar
+          - B Hurieva
+          - F Jonas
+          - N Barkai
+        publisher: Molecular Cell
+        releaseDate: 2026
+
+      - title: Intrinsically disordered regions direct transcription factor in vivo binding specificity
+        authors:
+          - S Brodsky
+          - T Jana
+          - K Mittelman
+          - M Chapal
+          - DK Kumar
+          - M Carmi
+          - N Barkai
+      publisher: Molecular Cell
+      releaseDate: 2020
+
+      - title: ChEC-Seq: A Comprehensive Guide for Scalable and Cost-Efficient Genome-Wide Profiling in Saccharomyces cerevisiae
+        authors:
+          - T Gera
+          - DK Kumar
+          - G Yaakov
+          - N Barkai
+          - F Jonas
+      publisher: Chromatin Immunoprecipitation: Methods and Protocols
+      releaseDate: 2024
+
 
     Skills:
       - name: Physics
