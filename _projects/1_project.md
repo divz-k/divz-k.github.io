@@ -10,20 +10,95 @@ related_publications: true
 
 Can we predict a protein's function from its amino acid sequence? The CAFA (Critical Assessment of protein Function Annotation) 6th challenge aims to predict protein function prediction using Gene Ontology (GO) annotations. GO annotations are the function annotations associated with the protein, the GO terms are structured as a Directed Acyclic Graph (DAG), and belong to three non-overlapping ontologies: Molecular Function (MF), Biological Process (BP) and Cellular Component (CC). Each protein can have multiple GO terms, and annotations must respect the hierarchical structure of the ontology (true path rule).
 
-This task is a multi-label classification problem:
+### This task is a multi-label classification problem:
+
     - Input: Protein amino acid sequence
     - Output: A probability score for each GO term
 
-Challenges:
+
+### Challenges:
+
     - Sparce labelling / Class imbalance: most GO terms are rare
-    - Hierarchical Label Structure: the labels are associated with each other. If a protein is associated with a GO term, it must also be annotated with that term's ancestor terms.
-    - Varying protein sequence length: We must find a reliablw way to represent proteins that are 30 to 30,000 amino acids long
-    - Large dataset, and limited computational power on my laptop
     
-GO Term Standardization and Indexing: 
-    - All GO terms from the CAFA training set were parsed using go-basic.obo. 
-    - Only GO terms appearing in the training annotations were retained, yielding ~25k terms.
-    - The GO terms were split into the 3 subontologies to process separately
+    - Hierarchical Label Structure: the labels are associated with each other. If a protein is associated with a GO term, it must also be annotated with that term's ancestor terms.
+    
+    - Varying protein sequence length: We must find a reliable way to represent proteins that are 30 to 30,000 amino acids long
+    
+    - Large dataset, and limited computational power on my laptop
+
+
+### Pipeline Outline:
+    - Compute protein embeddings from ESM2 (6 layers and embedding dimension 320). Frozen embeddings used.
+    - Design a lightweight MLP to predict the associated GO terms
+    - Use a loss function which includes
+        1. assymetric BCE (to weigh false positives and false negatives according to GO term)
+        2. coverage loss
+        3. GO term heirarchy enforcing loss
+        4. Negative GO term Loss
+
+---
+
+# Pipeline:
+
+### GO term Processing
+
+We first split the GO terms into the three sub-ontologies (Molecular Function, Biological Process and Cellular Component). We then elimiate any GO terms not present in the training data. Associate each protein id to a set of positive GO terms.
+
+### Information Content (IC) Computation
+Two complementary information-content measures were computed:
+     1. Structural IC
+     Derived purely from GO DAG topology. For each ontology separately, IC was defined as:
+    $$
+    IC_{\text{struct}}(t) = 1 - \frac{\log_2 \left( \left| \text{descendants}(t) \right| \right)}
+    {\log_2 \left( \left| \text{ontology} \right| \right)}
+    $$
+    This assigns higher IC to more specific (leaf-like) terms and lower IC to generic ancestors.
+    2. Abundance-Based IC
+    Using training annotations, I computed IC based on empirical frequency:
+    $$
+    IC_{\text{abundance}}(t) = -\log_2 \, p(t)
+    $$
+     where p(t)accounts for both direct annotations and descendant propagation, using goatools.TermCounts.
+Both IC measures were retained and later used for:
+	weighting false positives vs false negatives,
+	selecting informative negative GO terms.
+
+
+### Negative GO Term Sampling
+
+Standard CAFA training treats all unannotated GO terms as negatives, which is problematic: many “negatives” are actually unknown positives, the loss is dominated by trivial easy negatives, models learn to predict everything as zero. To address this, I explicitly constructed informative negative GO sets per protein. This analysis was done as described in the [NegGOA study](https://academic.oup.com/bioinformatics/article/32/19/2996/2196619).
+    
+    1. Conditional GO Co-Occurrence Matrix
+        - Constructing the GO co-occurrence graph/matrix
+    $$
+    P(B \mid A) = \frac{\#(A, B)}{\#(A)}
+    $$
+        This captures how often GO term B appears given A. For computational ease, I sparsified it to the top-100 conditional neighbors per GO term, and then row-normalized it to preserve probability semantics.
+        - Conditional Random Walk 
+        We perform a random walk to the neighbours in the co-occurance graph, in accordance to the weight of co-occurance. We take 4 steps, with a 50% probability of restart. 
+        $$
+        Rc = self.alpha * (Rc @ Wc) + (1 - self.alpha) * I
+        $$
+        where Wc is the GO Co-occurance matrix, alpha is the restart probability (0.5) and Rc is the matrix of the conditional random walk, which determines the weight of possible co-occurances. The random walk is performed over 4 iteration. 
+
+        2. Heirarchial GO Matrix
+        - Contruct the heirarchial graph/matrix: map the ancestor node to all its children. The weight of the edges (values in the matrix) is determined by
+        $$
+        wi,j​= 2IC(i) / IC(i)+IC(j)
+        $$
+        where IC is the information content determined by the structure of the GO graph. Note that i is the current node and j is the child node. Transition is favoured to child nodes of higher informational content.
+        - Conditional Random walk
+        Perform the same random walk as for the co-occurance, and obtain the Rh matrix that determines the possibility that if a parent node was annotated, the child node will later be annotated. 
+        
+        3. Compute the negative GO terme:
+        - Combine Rh and Wh into a single sparce matrix
+        $$
+        R = βR_h+(1-β)R_c
+        $$
+        We want the negative GO terms, so we must take 1-R. This is dense and huge, so computed only in the end (for the specific GO terms required, the full matrix remains sparse). 
+        - For each  protein id, we take the list of positive GO terms, find the potential postitve GO terms for each of the protein's associated GO terms (R matrix). Find the negative GO terms by 1-R. Subset those GO terms that have high informational content and take the ones with the top 50 scores. This is the list of NegGO terms per protein​
+    
+
 
 
 <div class="row">
