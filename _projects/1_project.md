@@ -10,24 +10,19 @@ related_publications: true
 
 Can we predict a protein's function from its amino acid sequence? The CAFA (Critical Assessment of protein Function Annotation) 6th challenge aims to predict protein function prediction using Gene Ontology (GO) annotations. GO annotations are the function annotations associated with the protein, the GO terms are structured as a Directed Acyclic Graph (DAG), and belong to three non-overlapping ontologies: Molecular Function (MF), Biological Process (BP) and Cellular Component (CC). Each protein can have multiple GO terms, and annotations must respect the hierarchical structure of the ontology (true path rule).
 
-### This task is a multi-label classification problem:
-
+This task is a multi-label classification problem:
     - Input: Protein amino acid sequence
     - Output: A probability score for each GO term
 
 
-### Challenges:
-
+Challenges:
     - Sparce labelling / Class imbalance: most GO terms are rare
-    
     - Hierarchical Label Structure: the labels are associated with each other. If a protein is associated with a GO term, it must also be annotated with that term's ancestor terms.
-    
     - Varying protein sequence length: We must find a reliable way to represent proteins that are 30 to 30,000 amino acids long
-    
     - Large dataset, and limited computational power on my laptop
 
 
-### Pipeline Outline:
+Pipeline Outline:
     - Compute protein embeddings from ESM2 (6 layers and embedding dimension 320). Frozen embeddings used.
     - Design a lightweight MLP to predict the associated GO terms
     - Use a loss function which includes
@@ -68,7 +63,7 @@ Both IC measures were retained and later used for:
 
 Standard CAFA training treats all unannotated GO terms as negatives, which is problematic: many “negatives” are actually unknown positives, the loss is dominated by trivial easy negatives, models learn to predict everything as zero. To address this, I explicitly constructed informative negative GO sets per protein. This analysis was done as described in the [NegGOA study](https://academic.oup.com/bioinformatics/article/32/19/2996/2196619).
     
-    1. Conditional GO Co-Occurrence Matrix
+1. Conditional GO Co-Occurrence Matrix
         - Constructing the GO co-occurrence graph/matrix
     $$
     P(B \mid A) = \frac{\#(A, B)}{\#(A)}
@@ -81,7 +76,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         $$
         where Wc is the GO Co-occurance matrix, alpha is the restart probability (0.5) and Rc is the matrix of the conditional random walk, which determines the weight of possible co-occurances. The random walk is performed over 4 iteration. 
 
-    2. Heirarchial GO Matrix
+2. Heirarchial GO Matrix
         - Contruct the heirarchial graph/matrix: map the ancestor node to all its children. The weight of the edges (values in the matrix) is determined by
         $$
         wi,j​= 2IC(i) / IC(i)+IC(j)
@@ -90,7 +85,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         - Conditional Random walk
         Perform the same random walk as for the co-occurance, and obtain the Rh matrix that determines the possibility that if a parent node was annotated, the child node will later be annotated. 
         
-    3. Compute the negative GO terme:
+3. Compute the negative GO terme:
         - Combine Rh and Wh into a single sparce matrix
         $$
         R = βR_h+(1-β)R_c
