@@ -2,7 +2,7 @@
 layout: page
 title: CAFA6 Challenge
 description: Predicting a protein's function from its amino acid sequence
-img: assets/img/12.jpg
+img: assets/img/cafa_image.jpeg
 importance: 1
 category: work
 related_publications: true
@@ -12,30 +12,22 @@ Can we predict a protein's function from its amino acid sequence? The CAFA (Crit
 
 **This task is a multi-label classification problem:**
 	
-	
 	- Input: Protein amino acid sequence
-    
-	
 	- Output: A probability score for each GO term
 
 
 **Challenges:**
 
     - Sparce labelling / Class imbalance: most GO terms are rare
-	
     - Hierarchical Label Structure: the labels are associated with each other. If a protein is associated with a GO term, it must also be annotated with that term's ancestor terms.
-	
     - Varying protein sequence length: We must find a reliable way to represent proteins that are 30 to 30,000 amino acids long
-	
     - Large dataset, and limited computational power on my laptop
 
 
 **Pipeline Outline:**
 
     - Compute protein embeddings from ESM2 (6 layers and embedding dimension 320). Frozen embeddings used.
-    
 	- Design a lightweight MLP to predict the associated GO terms
-    
 	- Use a loss function which includes
         1. assymetric BCE (to weigh false positives and false negatives according to GO term)
         2. coverage loss
@@ -83,7 +75,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         - Conditional Random Walk 
         We perform a random walk to the neighbours in the co-occurance graph, in accordance to the weight of co-occurance. We take 4 steps, with a 50% probability of restart. 
         $$
-        Rc = self.alpha * (Rc @ Wc) + (1 - self.alpha) * I
+        Rc = alpha * (Rc @ Wc) + (1 - alpha) * I
         $$
         where Wc is the GO Co-occurance matrix, alpha is the restart probability (0.5) and Rc is the matrix of the conditional random walk, which determines the weight of possible co-occurances. The random walk is performed over 4 iteration. 
 
@@ -102,7 +94,7 @@ Standard CAFA training treats all unannotated GO terms as negatives, which is pr
         R = βR_h+(1-β)R_c
         $$
         We want the negative GO terms, so we must take 1-R. This is dense and huge, so computed only in the end (for the specific GO terms required, the full matrix remains sparse). 
-        - For each  protein id, we take the list of positive GO terms, find the potential postitve GO terms for each of the protein's associated GO terms (R matrix). Find the negative GO terms by 1-R. Subset those GO terms that have high informational content and take the ones with the top 50 scores. This is the list of NegGO terms per protein​
+        - For each  protein id, we take the list of positive GO terms, find the potential postitve GO terms for each of the protein's associated GO terms (R matrix). Find the negative GO terms by L = 1-R. Subset those GO terms that have high informational content and take the ones with the top 50 scores. This is the list of NegGO terms per protein​
     
 
 ### Protein epresentation with ESM2
@@ -143,66 +135,7 @@ Explicitly penalizes confident predictions on precomputed negative GO terms. Thi
  
 Final Loss
 $$
-L=L_asym+λ_hier L_hier+λ_neg L_neg+λ_cov L_cov
+L = L_ asym + λ_hier * L_hier + λ_neg * L_neg + λ_cov * L_cov
 $$
 
 
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
