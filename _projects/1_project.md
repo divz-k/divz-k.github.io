@@ -118,20 +118,21 @@ ESM2 embedding (CLS)
 ### Loss Function Design
 The final objective is a weighted combination of four losses, each addressing a specific failure mode.
 
-	1. Asymmetric BCE with IC Weighting:
+1. Asymmetric BCE with IC Weighting:
 False positives and false negatives are weighted per GO term:
 	high-IC (specific) terms → stronger FP penalty,
 	low-IC (general) terms → stronger FN penalty.
 Losses are computed separately for BP, MF, and CC and averaged to prevent BP dominance.
+We use the Information Content scores computed from the abundance (of GO terms across training proteins). We first nornalise it (to range from 0 to 1), then the weights for the false positive terms are 1 - ic_norm, while weights for false negative terms are 1 + ic_norm. While we are weighing each GO term based on tis IC, we must also note that we have 25k GO terms, at most 50 will be annotated per protein. This will mean that our loss will be min even when all go are predicted negative. We need to force some positives to be predicted, so we penalise false negatives harder than false positives.
 
-	2. Coverage Loss (Early Training Stabilization)
+2. Coverage Loss (Early Training Stabilization)
 To prevent collapse to all-zero predictions, I introduced a coverage loss: enforces a minimum average predicted probability over true positive GO terms, applied in early epochs.
 This ensures the model learns to “activate” meaningful outputs before fine-grained discrimination.
 
-	3. Hierarchy Consistency Loss
+3. Hierarchy Consistency Loss
 Enforces: P(child)≤P(parent). To keep computation tractable, I only applied to top-K predicted GO terms per batch, hierarchy pairs are precomputed once from the GO DAG.
 
-	4. Negative GO Margin Loss
+4. Negative GO Margin Loss
 Explicitly penalizes confident predictions on precomputed negative GO terms. This forces separation between true positives and hard negatives. This was activated only after a few epochs of training.
  
 Final Loss
