@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+#subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -27,8 +27,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi! I’m a computational and molecular biology PhD student at the Weizmann Institute of Science, Israel. I’ve spent the last few years diving deep into sequencing data and conducting large-scale, high-throughput experiments to acquire it. I enjoy working with big data and finding simple, effective ways to communicate those insights.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+## Academic Journey
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I did my undergrad at the Indian Institute of Science, where I majored in Biology. I then moved to Israel to do my Masters at the Weizmann Institute of Science, where I later continued for my PhD in Prof Naama Barkai’s lab.
+
+I was inspired to be a molecular biologist in high school, when I had first learned of the central dogma, despite not having a clue of what such a career would look like. I was set on my way to becoming a molecular biologist, until I took a course in the 3rd year of my undergrad: DNA protein interactions and Nanobiology, which opened my eyes to a very unique perspective on the same. Following this course, I worked in four single molecule labs. My interests have diversified since then, yet this course showed me the beauty of thinking of science from different perspectives, which has stuck with me.
+
+In my PhD, I dove into the heart of fundamental molecular biology, this time using computational data methods, dissecting how transcription factors find their genomic target sites. In specific, I focussed on the intrinsically disordered regions that are enriched in the transcription factors, and their role in shaping transcriptional regulation. 
+
+## Reflections
+
+Grad school is all about learning to solve new problems outside of your field of expertise. There isn’t a defined path to a solution, and you learn the ability to pick up a new skill and learn any new topic.
