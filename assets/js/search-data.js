@@ -398,9 +398,9 @@ ninja.data = [{
           description: "Predicting a protein&#39;s function from its amino acid sequence",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
-            },},{id: "projects-art-molcelcover",
-          title: 'Art_molcelcover',
-          description: "Predicting a protein&#39;s function from its amino acid sequence",
+            },},{id: "projects-all-that-glitters-isn-39-t-gold",
+          title: 'All that glitters isn&amp;#39;t gold',
+          description: "Art abstraction of my first paper",
           section: "Projects",handler: () => {
               window.location.href = "/projects/art_molcelCover/";
             },},{
