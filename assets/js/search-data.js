@@ -398,6 +398,11 @@ ninja.data = [{
           description: "Predicting a protein&#39;s function from its amino acid sequence",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
+            },},{id: "projects-art-molcelcover",
+          title: 'Art_molcelcover',
+          description: "Predicting a protein&#39;s function from its amino acid sequence",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/art_molcelCover/";
             },},{
         id: 'social-email',
         title: 'email',
