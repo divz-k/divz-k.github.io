@@ -1,12 +1,14 @@
 ---
 layout: page
-title: 
-description: Predicting a protein's function from its amino acid sequence
+title: All that glitters isn't gold
+description: Art abstraction of my first paper
 img: assets/img/CoverSubmission_MOLECULAR-CELL-D-22-01441R2NaamaBarkai.jpg
 importance: 1
 category: fun
 related_publications: false
 ---
+
+In this [paper](https://pubmed.ncbi.nlm.nih.gov/37116493/) we define the contribution of DNA binding domains (DBDs) and DBD external regions (nonDBDs) in transcription factor (TF) target selection. DBDs (purple wings) of TFs (butterflies) enable them to bind to short DNA sequence motifs (light from lamps and shiny gold). These motifs are highly abundant in the genome, and to identify the subset of true targets (lamps), TFs require their nonDBDs (sparkly wings). 
 
 
 <div class="row">
@@ -15,6 +17,5 @@ related_publications: false
     </div>
 </div>
 <div class="caption">
-    In this [paper](https://pubmed.ncbi.nlm.nih.gov/37116493/) we define the contribution of DNA binding domains (DBDs) and DBD external regions (nonDBDs) in transcription factor (TF) target selection. DBDs (purple wings) of TFs (butterflies) enable them to bind to short DNA sequence motifs (light from lamps and shiny gold). These motifs are highly abundant in the genome, and to identify the subset of true targets (lamps), TFs require their nonDBDs (sparkly wings). 
     This cover has been designed using assets from Freepik.com and Pixabay.com
 </div>
