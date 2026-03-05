@@ -142,8 +142,6 @@ $$
 ### Performance
 Given the computational power of my laptop, I could run the code only for 5 epochs (took 24 hrs), during which I observed a big decrease in training loss, but only a mild decrease in validation loss. The same was trend observed in the F1 score and AUROC scores (micro). 
 
-The test set showed F1 micro score : XXXX and AUROC micro score: XXXX.
-
 There are many other models that are computationally advance that could yield better results. 
 1. Extract embeddings from multiple protein language models and input into an dense neural network, as done in [PROTGOAT](https://www.biorxiv.org/content/10.1101/2024.04.01.587572v1.full)
 2. Use embeddings for GO terms (from the GO term description) rather than the one hot encoded like system here. Although I did account for relationships between the GO terms, using embeddings might increase accuracy. 
