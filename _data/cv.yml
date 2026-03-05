@@ -30,9 +30,9 @@ cv:
         end_date: 2026
         score: ""
         highlights:
-          - **Computational** Identified gene regulatory patterns of transcription factors in yeast by analyzing NGS genomics data. Developed end-to-end NGS pipelines from wet-lab data to downstream analysis. Routine handling of large-scale datasets. 
-          - **Experimental** created >500 yeast TF mutants, set up a protein experimental domain in an *in vivo* lab (designing protocols, acquiring reagents and instruments)
-        courses: " **Relavant Courses**: Projects in Data Science, Introduction to Machine Learning, Analyzing Single Cell Seq Data, Mathematics for Biology, Statistics for Life Sciences, Network analysis in Systems Biology"
+          - "Computational: Identified gene regulatory patterns of transcription factors in yeast by analyzing NGS genomics data. Developed end-to-end NGS pipelines from wet-lab data to downstream analysis. Routine handling of large-scale datasets." 
+          - "Experimental: created >500 yeast TF mutants, set up a protein experimental domain in an *in vivo* lab (designing protocols, acquiring reagents and instruments)"
+        courses: " Relavant Courses: Projects in Data Science, Introduction to Machine Learning, Analyzing Single Cell Seq Data, Mathematics for Biology, Statistics for Life Sciences, Network analysis in Systems Biology"
 
 
       - institution: Weizmann Institute of Science
