@@ -45,7 +45,7 @@ We first split the GO terms into the three sub-ontologies (Molecular Function, B
 ### Information Content (IC) Computation
 Two complementary information-content measures were computed:
 
-     1. Structural IC
+1. Structural IC
      Derived purely from GO DAG topology. For each ontology separately, IC was defined as:
     $$
     IC_{\text{struct}}(t) = 1 - \frac{\log_2 \left( \left| \text{descendants}(t) \right| \right)}
@@ -53,7 +53,7 @@ Two complementary information-content measures were computed:
     $$
     This assigns higher IC to more specific (leaf-like) terms and lower IC to generic ancestors.
 	
-    2. Abundance-Based IC
+2. Abundance-Based IC
     Using training annotations, I computed IC based on empirical frequency:
     $$
     IC_{\text{abundance}}(t) = -\log_2 \, p(t)
