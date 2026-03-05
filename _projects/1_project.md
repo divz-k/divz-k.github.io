@@ -44,6 +44,7 @@ We first split the GO terms into the three sub-ontologies (Molecular Function, B
 
 ### Information Content (IC) Computation
 Two complementary information-content measures were computed:
+
      1. Structural IC
      Derived purely from GO DAG topology. For each ontology separately, IC was defined as:
     $$
@@ -51,15 +52,15 @@ Two complementary information-content measures were computed:
     {\log_2 \left( \left| \text{ontology} \right| \right)}
     $$
     This assigns higher IC to more specific (leaf-like) terms and lower IC to generic ancestors.
+	
     2. Abundance-Based IC
     Using training annotations, I computed IC based on empirical frequency:
     $$
     IC_{\text{abundance}}(t) = -\log_2 \, p(t)
     $$
      where p(t)accounts for both direct annotations and descendant propagation, using goatools.TermCounts.
-Both IC measures were retained and later used for:
-	weighting false positives vs false negatives,
-	selecting informative negative GO terms.
+	 
+Both IC measures were retained and later used for weighting false positives vs false negatives, and selecting informative negative GO terms.
 
 
 ### Negative GO Term Sampling
@@ -135,7 +136,21 @@ Explicitly penalizes confident predictions on precomputed negative GO terms. Thi
  
 Final Loss
 $$
-L = L_ asym + λ_hier * L_hier + λ_neg * L_neg + λ_cov * L_cov
+L = L_ a_s_y_m + λ_h_i_e_r * L_h_i_e_r + λ_n_e_g * L_n_e_g + λ_c_o_v * L_c_o_v
 $$
 
+### Performance
+Given the computational power of my laptop, I could run the code only for 5 epochs (took 24 hrs), during which I observed a big decrease in training loss, but only a mild decrease in validation loss. The same was trend observed in the F1 score and AUROC scores (micro). 
 
+The test set showed F1 micro score : XXXX and AUROC micro score: XXXX.
+
+There are many other models that are computationally advance that could yield better results. 
+1. Extract embeddings from multiple protein language models and input into an dense neural network, as done in [PROTGOAT](https://www.biorxiv.org/content/10.1101/2024.04.01.587572v1.full)
+2. Use embeddings for GO terms (from the GO term description) rather than the one hot encoded like system here. Although I did account for relationships between the GO terms, using embeddings might increase accuracy. 
+3. Incorporate more protein information, rather than just its sequence, like taxonomy (provided) and structural information (eg. propensity to disorder, alpha helix)
+
+### My Reflections
+My goal was to learn how to construct data structures and loss functions for a complex classification problem like this: I didn't have the means to test the above mentioned possibilites. In this process, alongside understanding the computer science concepts of deep learning, I also learnt to design a model that is RAM efficient and structure aware. 
+1.	Dataset construction was the cornerstone of ensuring RAM efficiency: this enabled me to take in sequences between 30-35k amino acids long, and map them to 25k GO-terms, while ensuring limits such as the negative GO-terms and hierarchical relationships. 
+2.	Incorporate as much prior knowledge as possible into the loss functions: my first model didn’t account for hierarchical IC increase, co-occurrence probabilities and non-overlapping nature of sub-ontologies, as I wanted the model to learn them implicitly through training. But by defining the loss function to incorporate these limits, I saw a much better performance (however, there could be other cases where it could lead to bias). 
+3.	I also saw that scaling down can lead to massive improvements in time-memory efficiency, while retaining model accuracy: taking only top hits, defining cut-offs and making the data sparce were the difference between models that ran vs crashed. 
