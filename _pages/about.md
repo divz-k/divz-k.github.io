@@ -35,8 +35,5 @@ I did my undergrad at the Indian Institute of Science, where I majored in Biolog
 
 I was inspired to be a molecular biologist in high school, when I had first learned of the central dogma, despite not having a clue of what such a career would look like. I was set on my way to becoming a molecular biologist, until I took a course in the 3rd year of my undergrad: DNA protein interactions and Nanobiology, which opened my eyes to a very unique perspective on the same. Following this course, I worked in four single molecule labs. My interests have diversified since then, yet this course showed me the beauty of thinking of science from different perspectives, which has stuck with me.
 
-In my PhD, I dove into the heart of fundamental molecular biology, this time using computational data methods, dissecting how transcription factors find their genomic target sites. In specific, I focussed on the intrinsically disordered regions that are enriched in the transcription factors, and their role in shaping transcriptional regulation. 
+In my PhD at [Prof Naama Barkai's lab](https://www.weizmann.ac.il/molgen/barkai/), I dove into the heart of fundamental molecular biology, this time using computational data methods, dissecting how transcription factors find their genomic target sites. In specific, I focussed on the intrinsically disordered regions that are enriched in the transcription factors, and their role in shaping transcriptional regulation. 
 
-## Reflections
-
-Grad school is all about learning to solve new problems outside of your field of expertise. There isn’t a defined path to a solution, and you learn the ability to pick up a new skill and learn any new topic.
