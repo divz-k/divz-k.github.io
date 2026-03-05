@@ -1,6 +1,6 @@
 cv:
   name: Divya Krishna Kumar
-  label: PhD candidate
+  label: PhD 
   email: kdivya5706@gmail.com
   location: Israel
   image: ""
@@ -149,10 +149,11 @@ cv:
 
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Programming
+        keywords: "Molecular biology, ChEC-Seq in vivo assays, flow cytometry, protein expression and purification, FACS, microfluidic techniques, single molecule microscopy, SPR, MST, western blots"
+      - name: Experimental Biology
+        keywords: "Molecular biology, ChEC-Seq in vivo assays, flow cytometry, protein expression and purification, FACS, microfluidic techniques, single molecule microscopy, SPR, MST, western blots"
+
 
     Languages:
       - name: German
