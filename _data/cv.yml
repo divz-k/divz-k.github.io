@@ -83,67 +83,37 @@ cv:
     Publications:
       - title: Complementary strategies for directing in vivo transcription factor binding through DNA binding domains and intrinsically disordered regions
         authors:
-          - DK Kumar *
-          - F Jonas *
-          - T Jana
-          - S Brodsky
-          - M Carmi
-          - N Barkai
+          - DK Kumar *, F Jonas *, T Jana, S Brodsky, M Carmi, N Barkai
         publisher: Molecular Cell
         releaseDate: 2023
 
       - title: Disordered sequences of transcription factors regulate genomic binding by integrating diverse sequence grammars and interaction types
         authors:
-          - B Hurieva *
-          - DK Kumar *
-          - R Morag
-          - O Lupo
-          - M Carmi
-          - N Barkai
-          - F Jonas
+          - B Hurieva *, DK Kumar *, R Morag, O Lupo, M Carmi, N Barkai, F Jonas
       publisher: Nucleic Acids Research
       releaseDate: 2024
 
       - title: The architecture of binding cooperativity between densely bound transcription factors
         authors:
-          - O Lupo
-          - DK Kumar
-          - R Livne
-          - M Chappleboim
-          - I Levy
-          - N Barkai
+          - O Lupo, DK Kumar, R Livne, M Chappleboim, I Levy, N Barkai
       publisher: Cell Systems
       releaseDate: 2023
 
       - title: Engineering intrinsically disordered regions for guiding genome navigation
         authors:
-          - J Liu
-          - DK Kumar
-          - B Hurieva
-          - F Jonas
-          - N Barkai
+          - J Liu, DK Kumar, B Hurieva, F Jonas, N Barkai
         publisher: Molecular Cell
         releaseDate: 2026
 
       - title: Intrinsically disordered regions direct transcription factor in vivo binding specificity
         authors:
-          - S Brodsky
-          - T Jana
-          - K Mittelman
-          - M Chapal
-          - DK Kumar
-          - M Carmi
-          - N Barkai
+          - S Brodsky, T Jana, K Mittelman, M Chapal, DK Kumar, M Carmi, N Barkai
       publisher: Molecular Cell
       releaseDate: 2020
 
       - title: ChEC-Seq: A Comprehensive Guide for Scalable and Cost-Efficient Genome-Wide Profiling in Saccharomyces cerevisiae
         authors:
-          - T Gera
-          - DK Kumar
-          - G Yaakov
-          - N Barkai
-          - F Jonas
+          - T Gera, DK Kumar, G Yaakov, N Barkai, F Jonas
       publisher: Chromatin Immunoprecipitation: Methods and Protocols
       releaseDate: 2024
 
