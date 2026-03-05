@@ -136,7 +136,7 @@ Explicitly penalizes confident predictions on precomputed negative GO terms. Thi
  
 Final Loss
 $$
-L = L_ a_s_y_m + λ_h_i_e_r * L_h_i_e_r + λ_n_e_g * L_n_e_g + λ_c_o_v * L_c_o_v
+L_{asym} + \lambda_{hier} L_{hier} + \lambda_{neg} L_{neg} + \lambda_{cov} L_{cov}
 $$
 
 ### Performance
