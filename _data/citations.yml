@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-06'
+  last_updated: '2026-04-15'
 papers:
   qNfIcXcAAAAJ:9yKSN-GCB0IC:
     citations: 16
@@ -14,7 +14,7 @@ papers:
     title: 'ChEC-Seq: A Comprehensive Guide for Scalable and Cost-Efficient Genome-Wide Profiling in Saccharomyces cerevisiae'
     year: '2024'
   qNfIcXcAAAAJ:W7OEmFMy1HYC:
-    citations: 5
+    citations: 6
     title: Intrinsically disordered regions direct transcription factor
     year: '2020'
   qNfIcXcAAAAJ:Y0pCki6q_DkC:
@@ -26,11 +26,11 @@ papers:
     title: Complementary strategies for directing in vivo transcription factor binding through DNA binding domains and intrinsically disordered regions
     year: '2023'
   qNfIcXcAAAAJ:qjMakFHDy7sC:
-    citations: 12
+    citations: 13
     title: Disordered sequences of transcription factors regulate genomic binding by integrating diverse sequence grammars and interaction types
     year: '2024'
   qNfIcXcAAAAJ:u-x6o8ySG0sC:
-    citations: 387
+    citations: 388
     title: Intrinsically disordered regions direct transcription factor in vivo binding specificity
     year: '2020'
   qNfIcXcAAAAJ:zYLM7Y9cAGgC:
