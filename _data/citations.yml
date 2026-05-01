@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-15'
+  last_updated: '2026-05-01'
 papers:
   qNfIcXcAAAAJ:9yKSN-GCB0IC:
     citations: 16
@@ -10,7 +10,7 @@ papers:
     title: "The architecture of binding cooperativity between densely bound transcription factors. Cell Syst. 14: 732\u2013745. e5"
     year: '2023'
   qNfIcXcAAAAJ:UeHWp8X0CEIC:
-    citations: 2
+    citations: 3
     title: 'ChEC-Seq: A Comprehensive Guide for Scalable and Cost-Efficient Genome-Wide Profiling in Saccharomyces cerevisiae'
     year: '2024'
   qNfIcXcAAAAJ:W7OEmFMy1HYC:
@@ -22,7 +22,7 @@ papers:
     title: Engineering intrinsically disordered regions for guiding genome navigation
     year: '2026'
   qNfIcXcAAAAJ:d1gkVwhDpl0C:
-    citations: 62
+    citations: 64
     title: Complementary strategies for directing in vivo transcription factor binding through DNA binding domains and intrinsically disordered regions
     year: '2023'
   qNfIcXcAAAAJ:qjMakFHDy7sC:
@@ -30,7 +30,7 @@ papers:
     title: Disordered sequences of transcription factors regulate genomic binding by integrating diverse sequence grammars and interaction types
     year: '2024'
   qNfIcXcAAAAJ:u-x6o8ySG0sC:
-    citations: 388
+    citations: 396
     title: Intrinsically disordered regions direct transcription factor in vivo binding specificity
     year: '2020'
   qNfIcXcAAAAJ:zYLM7Y9cAGgC:
